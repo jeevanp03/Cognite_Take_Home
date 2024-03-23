@@ -39,9 +39,3 @@ This project recreates the T9 (Text on 9 keys) predictive text input system, rem
 ### Testing
 
 The project includes a basic stubbed dictionary for testing purposes, which considers a word valid if its length is even. For more comprehensive testing, integrate a more complex dictionary or word checking mechanism.
-
-### Future Enhancements
-
-- **Dynamic Input:** Enhance the application to accept user input dynamically from the command line or a graphical interface.
-- **Expanded Dictionary:** Implement a more complex dictionary or integrate an external API for word validation.
-- **Efficiency Improvements:** Optimize the letter combination generation algorithm for speed and memory usage.
