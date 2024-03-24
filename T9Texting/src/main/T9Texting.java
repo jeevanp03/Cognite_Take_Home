@@ -13,20 +13,7 @@ public class T9Texting {
 
         stubbedDictionary.put("isWordTwo", input -> function(input));
 
-        Map<String, String[]> map = new HashMap<>();
-        map.put("1", new String[] { " " });
-        map.put("2", new String[] { "A", "B", "C" });
-        map.put("3", new String[] { "D", "E", "F" });
-        map.put("4", new String[] { "G", "H", "I" });
-        map.put("5", new String[] { "J", "K", "L" });
-        map.put("6", new String[] { "M", "N", "O" });
-        map.put("7", new String[] { "P", "Q", "R", "S" });
-        map.put("8", new String[] { "T", "U", "V" });
-        map.put("9", new String[] { "W", "X", "Y", "Z" });
-        map.put("*", new String[] { " " });
-        map.put("0", new String[] { "_" });
-        map.put("#", new String[] { " " });
-        Set<String> words = findWords("4663", stubbedDictionary, map);
+        Set<String> words = findWords("4663", stubbedDictionary);
         for (String word : words) {
             System.out.println(word);
         }
@@ -41,11 +28,10 @@ public class T9Texting {
         return false;
     }
 
-    public static Set<String> findWords(String code, Map<String, Interfaces.WordChecker> stubbedDictionary,
-            Map<String, String[]> map) {
-        CodeConversion conversion = new CodeConversion(code, map);
+    public static Set<String> findWords(String code, Map<String, Interfaces.WordChecker> stubbedDictionary) {
+        CodeConversion conversion = new CodeConversion(code);
         Set<String> results = new HashSet<>();
-        results = conversion.generateCombinations(code, "", map, results);
+        results = conversion.generateCombinations(code, "", conversion.getMap(), results);
         results = results.stream()
                 .filter(result -> stubbedDictionary.get("isWordTwo").isWord(result))
                 .collect(Collectors.toSet());
