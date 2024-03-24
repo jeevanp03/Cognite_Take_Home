@@ -8,7 +8,7 @@ This project recreates the T9 (Text on 9 keys) predictive text input system, rem
 
 #### CodeConversion Class
 
-- **Location:** `T9Texting/src/main`
+- **Location:** `T9Texting/src/main/java`
 - **Purpose:** Generates all possible letter combinations for a given sequence of digits using a mapping of digits to letters.
 - **Core Methods:**
   - `generateCombinations`: Recursively generates letter combinations for the input sequence.
@@ -16,14 +16,14 @@ This project recreates the T9 (Text on 9 keys) predictive text input system, rem
 
 #### Interfaces
 
-- **Location:** `T9Texting/src/main`
+- **Location:** `T9Texting/src/main/java`
 - **Purpose:** Contains functional interfaces used in the project.
 - **Key Interfaces:**
   - `WordChecker`: A functional interface with a single method `isWord`, used to determine if a string constitutes a valid word.
 
 #### T9Texting Class
 
-- **Location:** `T9Texting/src/main`
+- **Location:** `T9Texting/src/main/java`
 - **Functionality:** Serves as the entry point of the application. It simulates a T9 texting environment where users input a sequence of digits, and the system outputs all valid words as per a stubbed dictionary.
 - **Key Components:**
   - `main`: Initializes a stubbed dictionary and the digit-to-letter map, then finds and prints valid words for a given numeric sequence.
@@ -38,4 +38,18 @@ This project recreates the T9 (Text on 9 keys) predictive text input system, rem
 
 ### Testing
 
-The project includes a basic stubbed dictionary for testing purposes, which considers a word valid if its length is even. For more comprehensive testing, integrate a more complex dictionary or word checking mechanism.
+#### Main Function Output
+The project includes a basic stubbed dictionary for testing purposes, which considers a word valid if its length is even. For more comprehensive testing, integrate a more complex dictionary or word-checking mechanism.
+
+#### JUnit Tests
+- **Location:** `T9Texting/src/testing/java`
+There are 2 JUnit testing files under this directory: `TestCodeConversion` and `TestT9Texting`.
+
+##### TestCodeConversion
+- **Functionality:** Tests the object I created to make sure fields are updated correctly and the object's method's output is correct.
+
+#### TestT9Texting
+- **Functionality:** Tests the `findWords` functions to make sure the output is correct given the parameters in the problem statement provided.
+
+
+
