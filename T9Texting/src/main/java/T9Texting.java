@@ -1,4 +1,4 @@
-package T9Texting.src.main;
+package T9Texting.src.main.java;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +33,7 @@ public class T9Texting {
         Set<String> results = new HashSet<>();
         results = conversion.generateCombinations(code, "", conversion.getMap(), results);
         results = results.stream()
-                .filter(result -> stubbedDictionary.get("isWordTwo").isWord(result))
+                .filter(result -> stubbedDictionary.get("isWordOne").isWord(result))
                 .collect(Collectors.toSet());
 
         return results;

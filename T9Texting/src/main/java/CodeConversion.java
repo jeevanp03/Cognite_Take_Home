@@ -1,4 +1,4 @@
-package T9Texting.src.main;
+package T9Texting.src.main.java;
 
 import java.util.HashMap;
 import java.util.Map;
