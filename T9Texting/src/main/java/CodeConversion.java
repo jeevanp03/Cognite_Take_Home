@@ -1,4 +1,4 @@
-package T9Texting.src.main;
+package T9Texting.src.main.java;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +31,11 @@ public class CodeConversion {
     }
 
     public Set<String> generateCombinations(String sequence, String currentPrefix, Map<String, String[]> map,
-            Set<String> results) {
+            Set<String> results, int counter) {
+        if (counter == 0) {
+            System.out.println("Generating combinations for: " + sequence);
+            this.setCode(sequence);
+        }
         if (sequence.trim().length() == 0) {
             results.add(currentPrefix);
             return results;
@@ -42,17 +46,25 @@ public class CodeConversion {
         for (String letter : letters) {
             String newPrefix = currentPrefix + letter;
             String remainingSequence = sequence.substring(1);
-            generateCombinations(remainingSequence, newPrefix, map, results);
+            generateCombinations(remainingSequence, newPrefix, map, results, counter += 1);
         }
 
         return results;
     }
 
     public String getCode() {
-        return code;
+        return this.code;
     }
 
     public Map<String, String[]> getMap() {
-        return map;
+        return this.map;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setMap(Map<String, String[]> map) {
+        this.map = map;
     }
 }
