@@ -44,43 +44,65 @@ public class TestCodeConversion {
     @Test
     public void testGenerateCombinations1() {
         Set<String> results = new HashSet<>();
-        results = demoConversion1.generateCombinations("4663", "", demoConversion1.getMap(), results);
+        results = demoConversion1.generateCombinations("4663", "", demoConversion1.getMap(), results, 0);
         assertEquals(81, results.size());
     }
 
     @Test
     public void testGenerateCombinations2() {
         Set<String> results = new HashSet<>();
-        results = demoConversion1.generateCombinations("4663", "", demoConversion2.getMap(), results);
+        results = demoConversion1.generateCombinations("4663", "", demoConversion2.getMap(), results, 0);
         assertEquals(81, results.size());
     }
 
     @Test
     public void testGenerateCombinations3() {
         Set<String> results = new HashSet<>();
-        results = demoConversion1.generateCombinations("4667", "", demoConversion1.getMap(), results);
+        results = demoConversion1.generateCombinations("4667", "", demoConversion1.getMap(), results, 0);
         assertEquals(108, results.size());
     }
 
     @Test
     public void testGenerateCombinations4() {
         Set<String> results = new HashSet<>();
-        results = demoConversion1.generateCombinations("4667", "", demoConversion2.getMap(), results);
+        results = demoConversion1.generateCombinations("4667", "", demoConversion2.getMap(), results, 0);
         assertEquals(108, results.size());
     }
 
     @Test
     public void testGenerateCombinations5() {
         Set<String> results = new HashSet<>();
-        results = demoConversion1.generateCombinations("3667", "", demoConversion1.getMap(), results);
+        results = demoConversion1.generateCombinations("3667", "", demoConversion1.getMap(), results, 0);
         assertEquals(108, results.size());
     }
 
     @Test
     public void testGenerateCombinations6() {
         Set<String> results = new HashSet<>();
-        results = demoConversion1.generateCombinations("3667", "", demoConversion2.getMap(), results);
+        results = demoConversion1.generateCombinations("3667", "", demoConversion2.getMap(), results, 0);
         assertEquals(108, results.size());
+    }
+
+    @Test
+    public void testGetCode1() {
+        assertEquals("4663", demoConversion1.getCode());
+    }
+
+    @Test
+    public void testGetCode2() {
+        Set<String> results = new HashSet<>();
+        results = demoConversion1.generateCombinations("3667", "", demoConversion1.getMap(), results, 0);
+        assertEquals("3667", demoConversion1.getCode());
+    }
+
+    @Test
+    public void testGetMap1() {
+        assertEquals(12, demoConversion1.getMap().size());
+    }
+
+    @Test
+    public void testGetMap2() {
+        assertEquals(12, demoConversion2.getMap().size());
     }
 
 }

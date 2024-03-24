@@ -9,9 +9,10 @@ import java.util.stream.Collectors;
 public class T9Texting {
     public static void main(String[] args) {
         Map<String, Interfaces.WordChecker> stubbedDictionary = new HashMap<>();
-        stubbedDictionary.put("isWordOne", input -> input.length() % 2 == 0);
+        stubbedDictionary.put("isWord", input -> input.length() % 2 == 0);
 
-        stubbedDictionary.put("isWordTwo", input -> function(input));
+        // stubbedDictionary.put("isWord", input -> checkingFunction(input, new String[]
+        // { "HOME", "GONE", "GOOD", "HOOD" }));
 
         Set<String> words = findWords("4663", stubbedDictionary);
         for (String word : words) {
@@ -19,8 +20,8 @@ public class T9Texting {
         }
     }
 
-    private static boolean function(String input) {
-        for (String word : new String[] { "HOME", "GONE", "GOOD", "HOOD" }) {
+    private static boolean checkingFunction(String input, String[] words) {
+        for (String word : words) {
             if (word.equals(input)) {
                 return true;
             }
@@ -31,11 +32,12 @@ public class T9Texting {
     public static Set<String> findWords(String code, Map<String, Interfaces.WordChecker> stubbedDictionary) {
         CodeConversion conversion = new CodeConversion(code);
         Set<String> results = new HashSet<>();
-        results = conversion.generateCombinations(code, "", conversion.getMap(), results);
+        results = conversion.generateCombinations(code, "", conversion.getMap(), results, 0);
         results = results.stream()
-                .filter(result -> stubbedDictionary.get("isWordOne").isWord(result))
+                .filter(result -> stubbedDictionary.get("isWord").isWord(result))
                 .collect(Collectors.toSet());
 
         return results;
     }
+
 }
